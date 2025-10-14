@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="<%= i18n.language %>">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - <%= t('nav.projects') %></title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>body{background-color:#f4f4f4}.page-header{padding:4rem 0;background-color:white}.project-card{transition:all .3s ease}.project-card:hover{box-shadow:0 15px 35px rgba(0,0,0,.15);transform:translateY(-10px)}.slider{height:350px}.slider .slides li img{background-size:cover;background-position:center}</style>
+</head>
+<body>
+
+    <nav class="green">
+        <div class="nav-wrapper container">
+            <a href="/" class="brand-logo">[Votre Nom]</a>
+            <ul class="right"><li><a href="/?lng=<%= i18n.language %>"><i class="material-icons left">arrow_back</i><%= t('nav.home') %></a></li></ul>
+        </div>
+    </nav>
+
+    <header class="page-header center-align" data-aos="fade-in">
+        <div class="container">
+            <h1 class="grey-text text-darken-3" style="font-weight: 300;"><i class="material-icons medium" style="vertical-align: bottom;">business_center</i> <%= t('projectsPage.headerTitle') %></h1>
+            <p class="flow-text grey-text"><%= t('projectsPage.headerSubtitle') %></p>
+        </div>
+    </header>
+    
+    <main class="container" style="padding: 3rem 0;">
+        <div class="row">
+            <% projects.forEach(project => { %>
+                <div class="col s12 m6 l6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card project-card">
+                        <div class="card-image">
+                            <div class="slider">
+                                <ul class="slides">
+                                    <% project.imageUrls.forEach(url => { %>
+                                    <li><img src="<%= url %>"></li>
+                                    <% }); %>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title grey-text text-darken-4"><%= project.title %></span>
+                            <p><%= project.shortDescription %></p>
+                            <div style="margin-top: 15px;">
+                                <% project.tags.forEach(tag => { %><div class="chip green white-text"><%= tag %></div><% }); %>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <a href="<%= project.codeLink %>" target="_blank"><%= t('projectsPage.codeButton') %></a>
+                            <a class="waves-effect waves-light btn modal-trigger green" href="#modal-<%= project.id %>"><i class="material-icons left">play_circle_filled</i><%= t('projectsPage.videoButton') %></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="modal-<%= project.id %>" class="modal">
+                    <div class="modal-content">
+                        <h4><%= project.title %></h4>
+                        <div class="video-container"><iframe width="853" height="480" src="<%= project.videoUrl %>" frameborder="0" allowfullscreen></iframe></div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#!" class="modal-close waves-effect waves-red btn-flat"><%= t('projectsPage.closeButton') %></a>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </main>
+
+    <footer class="page-footer green darken-2">
+        <!-- <div class="container">
+            <div class="row">
+                <div class="col s12 center-align">
+                    <a href="?lng=fr" class="white-text" style="margin-right: 15px;"><%= t('footer.language_fr') %></a>
+                    <span class="white-text">|</span>
+                    <a href="?lng=en" class="white-text" style="margin-left: 15px;"><%= t('footer.language_en') %></a>
+                </div>
+            </div>
+        </div> -->
+        <div class="footer-copyright"><div class="container">© 2025 [Votre Nom]. <%= t('footer.rights') %></div></div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        AOS.init({ duration: 800, once: true });
+        M.Slider.init(document.querySelectorAll('.slider'), { indicators: true, height: 350, duration: 500, interval: 4000 });
+        M.Modal.init(document.querySelectorAll('.modal'));
+      });
+    </script>
+</body>
+</html>

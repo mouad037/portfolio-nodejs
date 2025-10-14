@@ -1,0 +1,33 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "projects": "Mes Projets"
+  },
+  "hero": {
+    "title": "Salut, je suis [Votre Nom]",
+    "subtitle": "Développeur Web Full-Stack",
+    "description": "Passionné par la création d'applications web performantes et d'expériences utilisateur intuitives.",
+    "button": "Voir mes projets"
+  },
+  "sections": {
+    "educationTitle": "Parcours & Formation",
+    "educationContent": "Diplômé de [Votre École/Université], j'ai suivi une formation intensive en [Votre Domaine d'Étude]. Mon parcours est marqué par un apprentissage continu et une passion pour la résolution de problèmes complexes.",
+    "bioTitle": "Biographie",
+    "bioContent": "Je suis un développeur web curieux et créatif, spécialisé dans l'écosystème JavaScript. Ma philosophie est de construire des applications qui ne sont pas seulement fonctionnelles, mais aussi agréables à utiliser.",
+    "skillsTitle": "Compétences",
+    "skillsLanguages": "Langages & Frameworks",
+    "skillsTools": "Outils & Technologies",
+    "contactTitle": "Contactez-moi",
+    "contactSubtitle": "Je suis ouvert aux nouvelles opportunités. Parlons-en !",
+    "contactName": "Nom",
+    "contactEmail": "Email",
+    "contactMessage": "Message",
+    "contactButton": "Envoyer le message"
+  },
+  "projectsPage": {
+    "headerTitle": "Mes Projets — Créativité & Impact",
+    "headerSubtitle": "Plongez dans mes réalisations à travers une galerie interactive et fluide. Chaque projet est soigneusement présenté avec une description claire, un diaporama d’images de qualité et une vidéo immersive.",
+    "codeButton": "Code Source",
+    "videoButton": "Vidéo"
+  }
+}

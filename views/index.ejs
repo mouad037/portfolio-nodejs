@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="<%= i18n.language %>">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - [Votre Nom]</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>/* ... (tous les styles CSS précédents) ... */
+    :root {
+        /* Votre nouvelle couleur principale */
+        --primary-color: #0bf098;
+        --dark-grey: #333;
+        --light-grey: #f4f4f4;
+    }
+
+    body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+        background-color: var(--light-grey);
+    }
+
+    main {
+        flex: 1 0 auto;
+    }
+
+    /* CORRIGÉ : Une seule définition propre pour .hero */
+    .hero {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        min-height: 100vh;
+        position: relative;
+        color: white;
+        /* Le bon chemin vers votre image */
+        background-image: url('/images/po.jpg'); 
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, .6);
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero .btn-large {
+        transition: all .3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, .2);
+    }
+
+    .hero .btn-large:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, .3);
+    }
+
+    .section {
+        padding: 5rem 1.5rem;
+    }
+
+    .section-title {
+        font-weight: 300;
+        margin-bottom: 1rem;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .section-title .material-icons {
+        font-size: 2.5rem;
+        margin-right: 1rem;
+        color: var(--primary-color);
+    }
+
+    .section-card {
+        background: white;
+        padding: 3rem;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, .1);
+        margin-top: -80px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .skill-chip {
+        display: inline-flex;
+        align-items: center;
+        background-color: #e0e0e0;
+        border-radius: 16px;
+        padding: 8px 16px;
+        margin: 5px;
+        font-weight: 500;
+        transition: all .3s ease;
+    }
+
+    .skill-chip:hover {
+        transform: scale(1.05);
+        background-color: var(--primary-color);
+        color: white;
+        /* CORRIGÉ : L'ombre correspond maintenant à votre couleur verte */
+        box-shadow: 0 5px 15px rgba(11, 240, 152, 0.4);
+    }
+
+    .skill-chip .material-icons {
+        font-size: 1.2rem;
+        margin-right: 8px;
+    }
+
+    #contact .btn {
+        width: 100%;
+    }
+    
+    #contact .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, .2);
+    }
+</style>
+
+<body>
+
+    <main>
+        <nav class="green">
+    <div class="nav-wrapper container">
+        <a href="/?lng=<%= i18n.language %>" class="brand-logo">[Votre Nom]</a>
+        
+        <!-- NOUVEAU : Liste pour les drapeaux à droite -->
+        <ul class="right">
+            <li>
+                <a href="?lng=en" title="Français">
+                    <img src="https://flagcdn.com/24x18/fr.png" alt="Français">
+                </a>
+            </li>
+            <li>
+                <a href="?lng=fr" title="English">
+                    <img src="https://flagcdn.com/24x18/gb.png" alt="English">
+                </a>
+            </li>
+        </ul>
+        
+        <ul class="right hide-on-med-and-down">
+             <li><a href="/?lng=<%= i18n.language %>"><%= t('nav.home') %></a></li>
+             <li><a href="/projects?lng=<%= i18n.language %>"><%= t('nav.projects') %></a></li>
+        </ul>
+    </div>
+</nav>
+        <!-- SECTION HERO -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="container">
+                    <h1 data-aos="fade-down" data-aos-delay="200"><%= t('hero.title') %></h1>
+                    <h4 class="grey-text text-lighten-2" data-aos="fade-down" data-aos-delay="400"><%= t('hero.subtitle') %></h4>
+                    <p class="flow-text grey-text text-lighten-3" data-aos="fade-up" data-aos-delay="600"><%= t('hero.description') %></p>
+                    <a href="/projects" class="btn-large waves-effect waves-light green" data-aos="zoom-in" data-aos-delay="800">
+                        <i class="material-icons left">dashboard</i><%= t('hero.button') %>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTIONS EN CARTES -->
+        <div class="container">
+            <div class="section-card" data-aos="fade-up">
+                <div id="parcours" class="section">
+                    <div class="center-align"><h2 class="section-title"><i class="material-icons">school</i><%= t('sections.educationTitle') %></h2></div>
+                    <p class="flow-text grey-text text-darken-2 center-align"><%= t('sections.educationContent') %></p>
+                </div>
+                <div class="divider"></div>
+                <div id="bio" class="section">
+                     <div class="center-align"><h2 class="section-title"><i class="material-icons">person</i><%= t('sections.bioTitle') %></h2></div>
+                    <p class="flow-text grey-text text-darken-2 center-align"><%= t('sections.bioContent') %></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION COMPÉTENCES -->
+        <section id="skills" class="section">
+            <div class="container">
+                <div class="center-align" data-aos="fade-up"><h2 class="section-title"><i class="material-icons">construction</i><%= t('sections.skillsTitle') %></h2></div>
+                <div class="row">
+                    <div class="col s12 m6" data-aos="fade-right" data-aos-delay="200">
+                        <h5 class="center-align"><%= t('sections.skillsLanguages') %></h5>
+                        <div class="center-align"><span class="skill-chip">HTML5/CSS3</span><span class="skill-chip">JavaScript</span><span class="skill-chip">Node.js</span><span class="skill-chip">React</span><span class="skill-chip">SQL/NoSQL</span></div>
+                    </div>
+                    <div class="col s12 m6" data-aos="fade-left" data-aos-delay="400">
+                        <h5 class="center-align"><%= t('sections.skillsTools') %></h5>
+                         <div class="center-align"><span class="skill-chip">Git/GitHub</span><span class="skill-chip">Docker</span><span class="skill-chip">VS Code</span><span class="skill-chip">Figma</span><span class="skill-chip">APIs RESTful</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION CONTACT -->
+        <section id="contact" class="section white">
+            <div class="container">
+                <div class="center-align" data-aos="fade-up"><h2 class="section-title"><i class="material-icons">email</i><%= t('sections.contactTitle') %></h2><p class="flow-text"><%= t('sections.contactSubtitle') %></p></div>
+                <div class="row" style="margin-top: 2rem;">
+                    <div class="col s12 m5" data-aos="zoom-in-right" data-aos-delay="200">
+                         <h5>Informations</h5>
+                         <p><i class="material-icons" style="vertical-align: middle;">email</i> <a href="mailto:votre.email@example.com">votre.email@example.com</a></p>
+                         <p><i class="material-icons" style="vertical-align: middle;">location_on</i> Paris, France</p>
+                    </div>
+                    <!-- In views/index.ejs -->
+
+<div class="col s12 m7" data-aos="zoom-in-left" data-aos-delay="400">
+    <!-- The action URL comes from your Formspree dashboard -->
+    <form action="https://formspree.io/f/xpwyoyvy" method="POST">
+        
+        <div class="input-field">
+            <i class="material-icons prefix">person</i>
+            <!-- CORRECTION: Added name="name" and required -->
+            <input id="name" type="text" name="name" required>
+            <label for="name"><%= t('sections.contactName') %></label>
+        </div>
+
+        <div class="input-field">
+            <i class="material-icons prefix">email</i>
+            <!-- CORRECTION: Added name="email" and required -->
+            <input id="email" type="email" name="email" required>
+            <label for="email"><%= t('sections.contactEmail') %></label>
+        </div>
+
+        <div class="input-field">
+            <i class="material-icons prefix">message</i>
+            <!-- CORRECTION: Added name="message" and required -->
+            <textarea id="message" class="materialize-textarea" name="message" required></textarea>
+            <label for="message"><%= t('sections.contactMessage') %></label>
+        </div>
+
+        <button class="btn-large waves-effect waves-light green" type="submit">
+            <%= t('sections.contactButton') %><i class="material-icons right">send</i>
+        </button>
+
+    </form>
+</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="page-footer green darken-2">
+        <!-- <div class="container">
+            <div class="row">
+                <div class="col s12 center-align">
+                    <a href="?lng=fr" class="white-text" style="margin-right: 15px;"><%= t('footer.language_fr') %></a>
+                    <span class="white-text">|</span>
+                    <a href="?lng=en" class="white-text" style="margin-left: 15px;"><%= t('footer.language_en') %></a>
+                </div>
+            </div>
+        </div> -->
+        <div class="footer-copyright"><div class="container">© 2025 [Votre Nom]. <%= t('footer.rights') %></div></div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        M.AutoInit();
+        AOS.init({ duration: 800, once: true, offset: 100 });
+      });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    M.AutoInit();
+    AOS.init({ duration: 800, once: true, offset: 100 });
+
+    // --- NOUVEAU : GESTION DES NOTIFICATIONS ---
+    const urlParams = new URLSearchParams(window.location.search);
+    const status = urlParams.get('status');
+
+    if (status === 'success') {
+        M.toast({
+            html: '<%= t("notifications.success") %>', 
+            classes: 'green'
+        });
+    } else if (status === 'error') {
+        M.toast({
+            html: '<%= t("notifications.error") %>', 
+            classes: 'red'
+        });
+    }
+  });
+</script>
+</body>
+</html>

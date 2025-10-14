@@ -1,0 +1,33 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "My Projects"
+  },
+  "hero": {
+    "title": "Hi, I'm [Your Name]",
+    "subtitle": "Full-Stack Web Developer",
+    "description": "Passionate about creating high-performance web applications and intuitive user experiences.",
+    "button": "See my projects"
+  },
+  "sections": {
+    "educationTitle": "Background & Education",
+    "educationContent": "Graduated from [Your School/University], I completed an intensive training in [Your Field of Study]. My journey is marked by continuous learning and a passion for solving complex problems.",
+    "bioTitle": "Biography",
+    "bioContent": "I am a curious and creative web developer, specializing in the JavaScript ecosystem. My philosophy is to build applications that are not only functional but also enjoyable to use.",
+    "skillsTitle": "Skills",
+    "skillsLanguages": "Languages & Frameworks",
+    "skillsTools": "Tools & Technologies",
+    "contactTitle": "Contact Me",
+    "contactSubtitle": "I'm open to new opportunities. Let's talk!",
+    "contactName": "Name",
+    "contactEmail": "Email",
+    "contactMessage": "Message",
+    "contactButton": "Send Message"
+  },
+  "projectsPage": {
+    "headerTitle": "My Projects — Creativity & Impact",
+    "headerSubtitle": "Dive into my work through a fluid and interactive gallery. Each project is carefully presented with a clear description, a quality image slideshow, and an immersive video.",
+    "codeButton": "Source Code",
+    "videoButton": "Video"
+  }
+}
