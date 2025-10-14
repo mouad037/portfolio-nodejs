@@ -1,0 +1,16 @@
+# Dossier des dépendances locales. Elles seront réinstallées proprement DANS le conteneur.
+node_modules
+
+# Fichier de log de npm. Inutile dans le conteneur.
+npm-debug.log
+
+# Fichiers de configuration de l'IDE ou du système d'exploitation.
+.vscode
+.idea
+.DS_Store
+
+# Le dossier Git lui-même.
+.git
+
+# Le fichier des variables d'environnement (sera géré autrement en production).
+.env
